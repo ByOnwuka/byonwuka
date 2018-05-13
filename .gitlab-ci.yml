@@ -1,0 +1,20 @@
+image: node
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  script:
+    - npm --version
+    - date
+    - npm run generate
+    - date 
+    - du -sh public/
+  artifacts:
+    paths:
+      - public
+
