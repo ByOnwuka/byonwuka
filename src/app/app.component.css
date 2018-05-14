@@ -7,5 +7,5 @@ button {
 }
 
 .gibberish-text { 
-    text-justify: newspaper;
+    text-align: justify;
 }
