@@ -1,3 +1,11 @@
 button {
     margin: 0 20px;
 }
+
+.agreementButtons { 
+    text-align: center;
+}
+
+.gibberish-text { 
+    text-justify: newspaper;
+}
