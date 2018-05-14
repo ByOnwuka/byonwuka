@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'by onwuka';
+  copyrightYear = '';
+  acknowledgeButton = 'I agree';
+  declineButton = 'Maybe later';
 }
