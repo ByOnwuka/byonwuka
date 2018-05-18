@@ -7,30 +7,31 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 export interface PriceTableItem {
   name: string;
   id: number;
+  amount: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: PriceTableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {id: 1, name: 'Hydrogen', amount: 10},
+  {id: 2, name: 'Helium', amount: 20},
+  {id: 3, name: 'Lithium', amount: 30},
+  {id: 4, name: 'Beryllium', amount: 40},
+  {id: 5, name: 'Boron', amount: 50},
+  {id: 6, name: 'Carbon', amount: 50},
+  {id: 7, name: 'Nitrogen', amount: 50},
+  {id: 8, name: 'Oxygen', amount: 40},
+  {id: 9, name: 'Fluorine', amount: 30},
+  {id: 10, name: 'Neon', amount: 20},
+  {id: 11, name: 'Sodium', amount: 10},
+  {id: 12, name: 'Magnesium', amount: 30},
+  {id: 13, name: 'Aluminum', amount: 30},
+  {id: 14, name: 'Silicon', amount: 20},
+  {id: 15, name: 'Phosphorus', amount: 10},
+  {id: 16, name: 'Sulfur', amount: 40},
+  {id: 17, name: 'Chlorine', amount: 30},
+  {id: 18, name: 'Argon', amount: 30},
+  {id: 19, name: 'Potassium', amount: 20},
+  {id: 20, name: 'Calcium', amount: 30},
 ];
 
 /**
@@ -95,6 +96,7 @@ export class PriceTableDataSource extends DataSource<PriceTableItem> {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'name': return compare(a.name, b.name, isAsc);
+        case 'amount': return compare(+a.amount, +b.amount, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
         default: return 0;
       }
